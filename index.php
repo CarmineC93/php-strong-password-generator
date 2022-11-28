@@ -10,8 +10,8 @@ var_dump($password_length);
 $passwordReady = generatePassword($password_length);
 $_SESSION["password"] = generatePassword($password_length);
 
-var_dump(generatePassword($password_length));
-var_dump($passwordReady);
+var_dump($_SESSION["password"]);
+
 ?>
 
 <!DOCTYPE html>

@@ -1,9 +1,17 @@
-<!-- **Milestone 1**
-Creare un form che invii in GET la lunghezza della password. Una nostra funzione utilizzerà questo dato per generare una password casuale (composta da lettere, lettere maiuscole, numeri e simboli) da restituire all’utente.
-Scriviamo tutto (logica e layout) in un unico file *index.php* -->
-
 <?php
 include __DIR__ . "/partials/functions/functions.php";
+session_start();
+
+$password_length = $_GET["length"];
+$password_length = intval($password_length);
+var_dump($password_length);
+
+
+$passwordReady = generatePassword($password_length);
+$_SESSION["password"] = generatePassword($password_length);
+
+var_dump(generatePassword($password_length));
+var_dump($passwordReady);
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +30,9 @@ include __DIR__ . "/partials/functions/functions.php";
 
     <?php include __DIR__ . "/form.php" ?>
 
-    <?php echo $passwordReady ?>
+    <a href="password.php">CLICCA PER VEDERE LA TUA PASSWORD</a>
+
+
 </body>
 
 </html>
